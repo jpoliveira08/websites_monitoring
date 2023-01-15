@@ -1,0 +1,13 @@
+modules:
+  http_2xx:
+    prober: http
+    timeout: 15s #Timeout after 5s if no response received
+    http:
+      valid_http_versions: 
+        - HTTP/1.1
+        - HTTP/2.0
+      method: GET #Use the HTTP GET method to access the endpoint
+      no_follow_redirects: false #Do not follow HTTP redirects
+      fail_if_not_ssl: true #Fail if the endpoint is not SSL secured 
+      preferred_ip_protocol: "ip4" #Use IPv4 protocol
+      ip_protocol_fallback: false
