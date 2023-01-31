@@ -18,8 +18,7 @@ scrape_configs:
     static_configs:
       - targets:
         # targets here
-        - https://crams.org.br/
-        - https://cra-pr.org.br/
+        - localhost:9000
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target

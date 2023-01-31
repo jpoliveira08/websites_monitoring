@@ -8,6 +8,6 @@ modules:
         - HTTP/2.0
       method: GET #Use the HTTP GET method to access the endpoint
       no_follow_redirects: false #Do not follow HTTP redirects
-      fail_if_not_ssl: true #Fail if the endpoint is not SSL secured 
+      fail_if_not_ssl: false #Fail if the endpoint is not SSL secured 
       preferred_ip_protocol: "ip4" #Use IPv4 protocol
       ip_protocol_fallback: false
