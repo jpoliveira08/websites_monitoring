@@ -49,15 +49,41 @@ services:
     networks:
       - monitoring
 
-  test_application:
-    build: ./test_application
-    container_name: test_application_container
+  application_rs:
+    build: ./application_rs
+    container_name: application_rs_container
     ports:
       - "8000:5000"
     networks:
       - monitoring
-  redis:
+  redis_rs:
     image: "redis:alpine"
-    container_name: redis-test_application
+    container_name: redis_rs_container
+    networks:
+      - monitoring
+
+  application_mg:
+    build: ./application_mg
+    container_name: application_mg_container
+    ports:
+      - "8001:5001"
+    networks:
+      - monitoring
+  redis_mg:
+    image: "redis:alpine"
+    container_name: redis_mg_container
+    networks:
+      - monitoring
+
+  application_df:
+    build: ./application_df
+    container_name: application_df_container
+    ports:
+      - "8002:5002"
+    networks:
+      - monitoring
+  redis_df:
+    image: "redis:alpine"
+    container_name: redis_df_container
     networks:
       - monitoring

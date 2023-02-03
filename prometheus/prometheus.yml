@@ -18,7 +18,9 @@ scrape_configs:
     static_configs:
       - targets:
         # targets here
-        - test_application_container:5000
+        - application_rs_container:5000
+        - application_mg_container:5001
+        - application_df_container:5002
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
