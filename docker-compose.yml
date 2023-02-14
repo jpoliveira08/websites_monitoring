@@ -49,41 +49,49 @@ services:
     networks:
       - monitoring
 
-  application_rs:
-    build: ./application_rs
-    container_name: application_rs_container
+  application:
+    build: ./public
+    container_name: application
+    restart: always
+    volumes:
+      - ./public:/var/www/html
     ports:
-      - "8000:5000"
-    networks:
-      - monitoring
-  redis_rs:
-    image: "redis:alpine"
-    container_name: redis_rs_container
+      - '9999:80'
     networks:
       - monitoring
 
-  application_mg:
-    build: ./application_mg
-    container_name: application_mg_container
+  database_df:
+    image: mysql:5.7
+    container_name: database_df
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'application_df'
+      MYSQL_ROOT_PASSWORD: 'root'
     ports:
-      - "8001:5001"
-    networks:
-      - monitoring
-  redis_mg:
-    image: "redis:alpine"
-    container_name: redis_mg_container
+      - '3310:3306'
     networks:
       - monitoring
 
-  application_df:
-    build: ./application_df
-    container_name: application_df_container
+  database_mg:
+    image: mysql:5.7
+    container_name: database_mg
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'application_mg'
+      MYSQL_ROOT_PASSWORD: 'root'
     ports:
-      - "8002:5002"
+      - '3320:3306'
     networks:
       - monitoring
-  redis_df:
-    image: "redis:alpine"
-    container_name: redis_df_container
+
+  database_rs:
+    image: mysql:5.7
+    container_name: database_rs
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'application_rs'
+      MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+      - '3330:3306'
     networks:
       - monitoring

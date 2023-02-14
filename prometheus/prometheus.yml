@@ -16,11 +16,7 @@ scrape_configs:
     params:
       module: [http_2xx]  # Module defined in blackbox.yml
     static_configs:
-      - targets:
-        # targets here
-        - application_rs_container:5000
-        - application_mg_container:5001
-        - application_df_container:5002
+      - targets: [ 'application' ]
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
