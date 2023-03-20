@@ -1,0 +1,7 @@
+groups:
+  - name: alert_rules
+    interval: 15s
+    rules:
+      - alert: cramg_down
+        expr: |
+          

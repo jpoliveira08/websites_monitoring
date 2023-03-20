@@ -1,0 +1,1 @@
+FROM benjojo/alertmanager-discord:latest
