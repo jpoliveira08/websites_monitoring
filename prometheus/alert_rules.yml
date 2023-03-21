@@ -2,6 +2,13 @@ groups:
   - name: alert_rules
     interval: 15s
     rules:
-      - alert: cramg_down
+      - alert: cradf_down
         expr: |
+          probe_http_status_code{instance="http://application/application_df", job="blackbox", name="DF"} != 200
+        for: 30s
+        labels:
+          severity: critical
+        annotations:
+          summary: Application "{{ $labels.name }}" down
+          description: 'application "{{ $labels.name }}" has been down'
           

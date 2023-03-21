@@ -57,10 +57,10 @@ services:
     ports:
       - "9093:9093"
     volumes:
-      - "./alertmanager:/config"
+      - ./alertmanager:/etc/alertmanager/
       - alertmanager-data:/data
     command: 
-      - "--config.file=/config/alertmanager.yml --cluster.advertise-address=alertmanager:9093"
+      - "--config.file=/etc/alertmanager/alertmanager.yml"
     restart: unless-stopped
     networks:
       - monitoring
@@ -71,6 +71,8 @@ services:
     restart: unless-stopped
     environment:
       - DISCORD_WEBHOOK=${DISCORD_WEBHOOK_URL} # Point discord alertmanager to discord server
+    networks:
+      - monitoring
 
   application:
     build: ./public
