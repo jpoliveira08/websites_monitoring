@@ -1,0 +1,18 @@
+{
+    "targets": {
+        "Alura": {
+            "url": "https://www.alura.com.br/",
+            "labels": {
+                "name": "Alura",
+                "tipo_ambiente": "PROD"
+            }
+        },
+        "Tecmundo":{
+            "url": "https://www.tecmundo.com.br/",
+            "labels": {
+                "name": "Alura",
+                "tipo_ambiente": "PROD"
+            }
+        }
+    }
+}

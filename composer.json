@@ -1,0 +1,10 @@
+{
+    "autoload": {
+        "psr-4": {
+            "AutoPrometheusBlackbox\\": "src/"
+        }
+    },
+    "require": {
+        "symfony/yaml": "^6.3"
+    }
+}
